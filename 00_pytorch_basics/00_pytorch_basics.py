@@ -41,6 +41,10 @@ class TensorDemo:
                                           row : int, 
                                           col : int) -> torch.Tensor:
         return torch.randn(no_of_axes, row, col)
+    def initialize_image_tensor(self, no_of_axes : int, 
+                                          row : int, 
+                                          col : int) -> torch.Tensor:
+        return torch.randn(no_of_axes, row, col)
 
     #create a tensor initialized
     #   1. initialize with zeroes, ones or rand int
@@ -55,11 +59,14 @@ class TensorDemo:
         elif (inititialize_with == "1"):
             tensor_obj = self.initialize_tensor_with_ones(no_of_axes,
                                                            row, col)
+        elif (inititialize_with == "image"):
+            tensor_obj = self.initialize_image_tensor(no_of_axes,
+                                                           row, col)            
         else:
             tensor_obj = self.initialize_tensor_with_random_num(no_of_axes,
                                                                  row, col)
         return tensor_obj
-
+    
 # Test method
 def test_classes():
     # initialize TensorDemo class
